@@ -16,4 +16,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
 
+const html = require('./controllers/html')
+html(app);
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
