@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/jonathantcallahan/bsed1-mmbaker#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
-    "mongoose": "^5.1.5"
+    "mongoose": "^5.1.5",
+    "request": "^2.87.0"
   }
 }
