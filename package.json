@@ -23,6 +23,7 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "mongoose": "^5.1.5",
+    "nodemon": "^1.17.5",
     "request": "^2.87.0"
   }
 }
