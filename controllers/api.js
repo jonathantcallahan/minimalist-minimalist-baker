@@ -18,9 +18,19 @@ module.exports = app => {
                 // body ? resolve(body) : reject(new Error('The request did not return a body'))
                 if(!err && response.statusCode == 200){
                     const $ = cheerio.load(body);
-                    const title = $('h1.entry-title').text();
-                    console.log(title)
-                    resolve(title)
+                    const image = [];
+                    $('img').each(function(i, element){
+                        const img = $(this).html();
+                        console.log(img.indexOf('data'))
+                        img.indexOf('data') == -1 && image.push(img)
+                    });
+                    // console.log(image)
+                    const recipe = {
+                        title: $('h1.entry-title').text(),
+                        source: url
+                    }
+                    // console.log($('h1.entry-title').text())
+                    resolve(image)
                 } else {
                     reject(new Error(`An error occured. Status code ${response.statusCode}`))
                 }
