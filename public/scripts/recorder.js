@@ -6,6 +6,7 @@ $( document ).ready(function(){
         console.log(body);
         $.post('/addrecipe',body, data => {
             console.log(data)
+            $('body').append(data)
         })
     })
 })

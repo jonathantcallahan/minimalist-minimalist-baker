@@ -13,7 +13,17 @@ module.exports = app => {
     const getRecipe = url => {
         return new Promise(function(resolve,reject){
             request(url, (err,response,body) => {
-                body ? resolve(body) : reject(new Error('The request did not return a body'))
+                // console.log(err)
+                // console.log(response)
+                // body ? resolve(body) : reject(new Error('The request did not return a body'))
+                if(!err && response.statusCode == 200){
+                    const $ = cheerio.load(body);
+                    const title = $('h1.entry-title').text();
+                    console.log(title)
+                    resolve(title)
+                } else {
+                    reject(new Error(`An error occured. Status code ${response.statusCode}`))
+                }
             })
         })
     }
