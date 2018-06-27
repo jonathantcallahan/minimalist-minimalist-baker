@@ -7,7 +7,7 @@ $( document ).ready(function(){
         $.post('/addrecipe',body, data => {
             console.log(data)
             const rData = `"${data}"`
-            $('body').append(rData)
+            //$('body').append(rData)
         })
     })
 })

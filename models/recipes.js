@@ -5,11 +5,8 @@ const recipeSchema = new Schema({
     title:String,
     source:String,
     images:Array,
-    ingredients:String,
-    tags:Array,
-    instructions:String,
-    fridge:String,
-    freezer:String
+    details:String,
+    tags:String,
 })
 
 const Recipe = mongoose.model('Recipe',recipeSchema);

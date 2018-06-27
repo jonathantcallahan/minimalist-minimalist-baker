@@ -28,25 +28,26 @@ module.exports = (app, Recipe) => {
                     const $ = cheerio.load(body);
                     const image = [];
     
-                    // Minimalist Baker
-                    // $('noscript').each(function(i, element){
-                    //     const nos = $(this);
-                    //     const img = nos.children('img')
-                    //     //console.log(img.indexOf('data'))
-                    //     //img.indexOf('data') == -1 && image.push(img)
-                    //     img && image.push(img)
-                    // });
-                    // console.log(image)
-                    // End Minimalist Baker
+                    // Minimalist Baker image
+
+                    $('p').each(function(i,e){
+                        const href = $(this).children('a').attr('href');
+                        if(href && href.indexOf('jpg') > -1){ image.push(href) } 
+                    })
+
+                    // End Minimalist Baker image
 
                     const recipe = {
                         title: $('h1.entry-title').text(),
-                        source: url
+                        source: url,
+                        images:image,
+                        details:$('div.wprm-recipe-details-container').html(),
+                        tags:$('span.wprm-recipe-cuisine').text()
                     }
                     // console.log($('h1.entry-title').text())
                     addToDB(recipe)
                     console.log(image)
-                    resolve(image)
+                    resolve(recipe)
                 } else {
                     console.log(response.statusCode)
                     reject(new Error(`An error occured. Status code ${response.statusCode}`))
