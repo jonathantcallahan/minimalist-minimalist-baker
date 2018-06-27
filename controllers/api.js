@@ -21,6 +21,12 @@ module.exports = (app, Recipe) => {
             })
     };
 
+    app.get('/recipes', (req,res) => {
+        Recipe.find({})
+            .then(data => res.json(data))
+            .catch(err => res.status(500).json(err))
+    })
+
     const getRecipe = url => {
         return new Promise(function(resolve,reject){
             request(url, (err,response,body) => {
@@ -41,8 +47,12 @@ module.exports = (app, Recipe) => {
                         title: $('h1.entry-title').text(),
                         source: url,
                         images:image,
-                        details:$('div.wprm-recipe-details-container').html(),
-                        tags:$('span.wprm-recipe-cuisine').text()
+                        ingredients:$('div.wprm-recipe-ingredients-container').html(),
+                        instructions:$('div.wprm-recipe-instructions-container').html(),
+                        //tags:$('span.wprm-recipe-cuisine').text(),
+                        //freezer:$('span.wprm-recipe-freezer-friendly').text(),
+                        // fridge:$('span.wprm-recipe-does-it-keep').text(),
+                        // time:$('span.wprm-recipe-total_time-minutes').text(),
                     }
                     // console.log($('h1.entry-title').text())
                     addToDB(recipe)
