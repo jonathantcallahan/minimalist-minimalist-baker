@@ -2,11 +2,12 @@ alert('yoo')
 
 $.get('/recipes', data => {
     console.log(data)
-    data.forEach(e => {
+    data.forEach((e,i) => {
+        console.log(e)
         const rec = `
-        <div>${e.title}</div>
-        <img style='width:100px' src=${e.images[0]}>
+        <div id='rec-${i}'>${e.title}</div>
         `
+        })
         $('body').append(rec)
     })
 })

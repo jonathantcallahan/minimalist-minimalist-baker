@@ -37,7 +37,7 @@ module.exports = (app, Recipe) => {
                     // Minimalist Baker image
 
                     $('p').each(function(i,e){
-                        const href = $(this).children('a').attr('href');
+                        const href = $(this).children('img').attr('src');
                         if(href && href.indexOf('jpg') > -1){ image.push(href) } 
                     })
 
@@ -55,7 +55,7 @@ module.exports = (app, Recipe) => {
                         // time:$('span.wprm-recipe-total_time-minutes').text(),
                     }
                     // console.log($('h1.entry-title').text())
-                    addToDB(recipe)
+                    //addToDB(recipe)
                     console.log(image)
                     resolve(recipe)
                 } else {
