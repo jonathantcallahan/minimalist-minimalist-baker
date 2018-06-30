@@ -14,7 +14,7 @@
     color: white;
     font-family: sans-serif;
     font-weight: 800;
-    margin: 25px 0px 0px 10px;
+    margin: 0px 0px 0px 10px;
     text-shadow: 0px 0px 5px black;
 }
 
@@ -41,4 +41,23 @@
     color: rgb(249, 249, 249);
     font-weight: 800;
     margin-left: 10px
+}
+
+.rm-cont {
+    text-align: right;
+}
+
+.rm {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 2px;
+    border-radius: 3px;
+    margin: 4px;
+    box-shadow: 0px 0px 3px gray
 }

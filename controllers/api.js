@@ -21,7 +21,24 @@ module.exports = (app, Recipe) => {
             })
     };
 
-    app.get('/search/')
+    app.get('/search', (req,res) => {
+        let query = req.query.tag;
+        query = query.split(',');
+        console.log(query)
+        Recipe.find({ tags: { $all: query }})
+            .then(data => res.json(data))
+            .catch(err => res.status(500).json(err))
+        
+        // res.json(query)
+    })
+
+    app.delete('/remove/:id', (req,res) => {
+        const id = req.params.id;
+        Recipe.remove({ _id:id }, err => err ? 
+            res.status(500).json(err):
+            res.json('Document successfully removed'
+        ))
+    })
 
     app.get('/recipes', (req,res) => {
         Recipe.find({})
@@ -51,6 +68,11 @@ module.exports = (app, Recipe) => {
 
                     // End Minimalist Baker image ↵
 
+                    const tags = $('span.wprm-recipe-cuisine').text().substring(1).trim().split(',');
+                    tags.forEach((e,i) => {
+                        tags[i] = e.trim()
+                    })
+                    console.log(tags)
 
                     const recipe = {
                         title: $('h1.entry-title').text(),
@@ -58,7 +80,7 @@ module.exports = (app, Recipe) => {
                         images:image,
                         ingredients:$('div.wprm-recipe-ingredients-container').html(),
                         instructions:$('div.wprm-recipe-instructions-container').html(),
-                        tags:$('span.wprm-recipe-cuisine').text().substring(1).trim().split(','),
+                        tags:tags,
                         freezer:$('span.wprm-recipe-freezer-friendly').text().substring(1).trim(),
                         fridge:$('span.wprm-recipe-does-it-keep').text().substring(1).trim(),
                         time:$('span.wprm-recipe-total_time-minutes').text(),
