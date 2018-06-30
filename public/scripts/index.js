@@ -9,9 +9,10 @@ const createTags = () => {
     })
 };
 
-$.get('/recipes', data => {
-    console.log(data)
-    data.forEach((e,i) => {
+const loadRecipes = recipes => {
+    $('#recipes').empty();
+    tags.length = 0;
+    recipes.forEach((e,i) => {
         console.log(e)
         console.log(i)
         const rec = `
@@ -34,7 +35,24 @@ $.get('/recipes', data => {
     })
     console.log(tags)
     createTags()
+}
+
+const refresh = () => {
+    $.get('/recipes', data => {
+        console.log(data)
+        searchTags.length = 0
+        loadRecipes(data)
+    })
+}
+
+refresh()
+
+$('#refresh').click(function(){
+    refresh()
 })
+
+
+
 
 $('#tags').on('click','.sort', function(){
     const tag = $(this).text();
@@ -42,7 +60,7 @@ $('#tags').on('click','.sort', function(){
     console.log(searchTags)
     const searchString = searchTags.join(',');
     console.log(searchString)
-    $.get(`/search?tag=${searchString}`, data => console.log(data))
+    $.get(`/search?tag=${searchString}`, data => loadRecipes(data))
 })
 
 $('body').on('click','.rm', function(){
