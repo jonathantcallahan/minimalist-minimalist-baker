@@ -51,6 +51,16 @@ $('#refresh').click(function(){
     refresh()
 })
 
+$('#recipes').on('mouseover','.rm-cont', function(){
+    console.log('hover')
+    const rm = $(this).children();
+    rm.css('visibility','visible')
+})
+
+$('#recipes').on('mouseout','.rm-cont', function(){
+    $(this).children().css('visibility','hidden');
+})
+
 
 
 
