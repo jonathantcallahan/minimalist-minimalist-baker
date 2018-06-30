@@ -21,8 +21,16 @@ module.exports = (app, Recipe) => {
             })
     };
 
+    app.get('/search/')
+
     app.get('/recipes', (req,res) => {
         Recipe.find({})
+            .then(data => res.json(data))
+            .catch(err => res.status(500).json(err))
+    })
+
+    app.get('/recipe-info/:id', (req,res) => {
+        Recipe.findById(req.params.id)
             .then(data => res.json(data))
             .catch(err => res.status(500).json(err))
     })
@@ -41,7 +49,8 @@ module.exports = (app, Recipe) => {
                         if(href && href.indexOf('jpg') > -1){ image.push(href) } 
                     })
 
-                    // End Minimalist Baker image
+                    // End Minimalist Baker image ↵
+
 
                     const recipe = {
                         title: $('h1.entry-title').text(),
@@ -49,13 +58,14 @@ module.exports = (app, Recipe) => {
                         images:image,
                         ingredients:$('div.wprm-recipe-ingredients-container').html(),
                         instructions:$('div.wprm-recipe-instructions-container').html(),
-                        //tags:$('span.wprm-recipe-cuisine').text(),
-                        //freezer:$('span.wprm-recipe-freezer-friendly').text(),
-                        // fridge:$('span.wprm-recipe-does-it-keep').text(),
-                        // time:$('span.wprm-recipe-total_time-minutes').text(),
+                        tags:$('span.wprm-recipe-cuisine').text().substring(1).trim().split(','),
+                        freezer:$('span.wprm-recipe-freezer-friendly').text().substring(1).trim(),
+                        fridge:$('span.wprm-recipe-does-it-keep').text().substring(1).trim(),
+                        time:$('span.wprm-recipe-total_time-minutes').text(),
+                        notes:$('div.wprm-recipe-notes-container').html(),
                     }
-                    // console.log($('h1.entry-title').text())
-                    //addToDB(recipe)
+                    
+                    addToDB(recipe)
                     console.log(image)
                     resolve(recipe)
                 } else {

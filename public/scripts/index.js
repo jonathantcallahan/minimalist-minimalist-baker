@@ -1,3 +1,14 @@
+const tags = [];
+const searchTags = [];
+
+const createTags = () => {
+    $('#tags').empty();
+    tags.forEach(t => {
+        const tag = `<div class='tag sort'>${t}</div>`;
+        $('#tags').append(tag)
+    })
+};
+
 $.get('/recipes', data => {
     console.log(data)
     data.forEach((e,i) => {
@@ -8,15 +19,21 @@ $.get('/recipes', data => {
             <a id='rec-${i}' class='title' href='/recipes/${e._id}'><div>${e.title}</div></a>
             <div class='tag-cont' id='tags-${i}'></div>
         </div>`
-        $('body').append(rec)
+        $('#recipes').append(rec)
         e.tags.forEach(g => {
-            console.log(g);
-            console.log(i)
-            console.log(`#rec-${i}`)
+            g = g.trim();
+            tags.indexOf(g) == -1 && tags.push(g);
             const tag = `
             <div class='tag'>${g}</div>`
-            $(`#tags-${i}`).append(tag)
+            $(`#tags-${i}`).append(tag);
         })    
     })
-        
+    console.log(tags)
+    createTags()
+})
+
+$('#tags').on('click','.sort', function(){
+    const tag = $(this).text();
+    searchTags.indexOf(tag) == -1 && searchTags.push(tag);
+    console.log(searchTags)
 })
