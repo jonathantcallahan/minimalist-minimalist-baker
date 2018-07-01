@@ -21,7 +21,7 @@ I reconstructed the recipe pages with only the necessary information. The pages 
 
 ![Recipe Page](https://i.imgur.com/CLHJYRu.png)
 
-The site is intentionally uncluttered and overtly minimalist to allow the recipes to be easily utilized. The frontend utilizes flex boxes, resonsive font sizes, and media queries to be responsive for different device widths.
+The site is intentionally uncluttered and overtly minimalist to allow the recipes to be easily utilized. The frontend utilizes flex boxes, responsive font sizes, and media queries to be responsive for different device widths.
 
 ![Add URL](https://i.imgur.com/jhJTSjr.png)
 
