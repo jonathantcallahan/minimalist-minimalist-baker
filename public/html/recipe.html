@@ -6,16 +6,25 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
         </script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <script src='./../scripts/recipe.js'></script>
         <link rel='stylesheet' href='./../style/recipe.css'>
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Shrikhand|Roboto+Mono" rel="stylesheet">
     </head>
     <body>
-        <a href='/'>Home</a>
-        This is where the individual recipe info will go
+        <div id='title'></div>
         <div id='img-holder'>
             <img id='food-img' src=''>
             <div class='scroll' id='left'></div>
             <div class='scroll' id='right'></div>
+            <div id='details'>
+                <span id='time'><i class="far fa-clock"></i></span>
+                <span id='fridge'><i class="fas fa-angle-down"></i></span>
+                <span id='freezer'><i class="fas fa-angle-double-down"></i></span>
+            </div>
         </div>
+        <div id='ingredients'></div>
+        <div id='instructions'></div>
+        <footer><a class='link' href='/'>Home</a></footer>
     </body>
 </html>
