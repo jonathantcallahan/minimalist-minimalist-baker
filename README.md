@@ -1,6 +1,6 @@
 # Minimalist Minimalist Baker
 
-#### [Link to hosted site][https://mmbaker.herokuapp.com]
+#### [Link to hosted site](https://mmbaker.herokuapp.com)
 
 > I love The Minimalist Baker's recipes but her webiste isn't built for browsing. And oftentimes recipe pages are more blog post than recipe. I use her recipes often so I wanted to be able to choose a recipe and easily see the ingredients/ instructions/ images.
 
