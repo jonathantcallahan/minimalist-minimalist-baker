@@ -9,7 +9,9 @@
     background-position: left center;
     background-size: 100%;
     vertical-align: text-bottom;
-    display: inline-block
+    display: inline-flex;
+    flex-direction: column;
+    min-height: 20vh;
 }
 
 .title {
@@ -32,13 +34,15 @@
     padding: 4px;
     margin: 2px;
     font-size: 12px;
-    border-radius: 4px
+    border-radius: 4px;
+    margin-bottom: 4px
 }
 
 .sort {
     color: black;
     background-color: white;
     border: 1px solid black;
+    margin-bottom: 2px
 }
 
 .tag-cont {
@@ -50,6 +54,7 @@
 
 .rm-cont {
     text-align: right;
+    flex: 1;
 }
 
 .rm {

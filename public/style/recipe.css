@@ -22,7 +22,7 @@ i {
 
 #title {
     font-family: 'Roboto Mono';
-    font-size: 3vw;
+    font-size: 30px;
     margin-left: 30px
 }
 
@@ -109,4 +109,58 @@ footer {
     left: 0;
     bottom: 0;
     height: 30px
+}
+
+@media only screen and (max-width: 842px){
+    #img-holder {
+        width: 80vw;
+        padding: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        border: none
+    }
+
+    #details {
+        font-size: 12px
+    }
+
+    #food-img {
+        width: 90vw
+    }
+
+    #title {
+        margin-left: 5px
+    }
+
+    ul {
+        padding-left: 10px
+    }
+
+    ol {
+        padding-left: 15px
+    }
+
+}
+
+@media only screen and (max-width: 600px){
+    li {
+        font-size: 3vw
+    }
+
+    #right {
+        left: 70vw
+    }
+
+    #ingredients, #instructions {
+        margin: 5px;
+        width: 80vw
+    }
+
+    h4 {
+        margin: 2px 0px
+    }
+
+    ul {
+        margin: 2px 5px 2px 8px;
+    }
 }
