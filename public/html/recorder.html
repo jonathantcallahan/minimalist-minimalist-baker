@@ -6,11 +6,18 @@
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Raleway|Shrikhand|Roboto+Mono" rel="stylesheet">
         <script src='scripts/recorder.js'></script>
+        <link rel='stylesheet' href='./../style/recorder.css'>
     </head>
     <body>
-        <a href='/'>Home</a>
-        <input id='rurl' placeholder='enter url' type='text'>
-        <button id='add'>add recipe</button>
+        <div id='cont'>
+                <input id='rurl' placeholder='enter url' type='text'>
+                <button id='add'>add recipe</button>
+                <div id='stat'></div>
+                <img id='stat-img' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAAB+CAMAAAAKn+3gAAAAA1BMVEX///+nxBvIAAAAMklEQVR4nO3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8Gbr4AAfCySl0AAAAASUVORK5CYII='>            
+        </div>
+        
+        <footer><a class='link' href='/'>Home</a></footer>
     </body>
 </html>

@@ -86,8 +86,7 @@ module.exports = (app, Recipe) => {
                         time:$('span.wprm-recipe-total_time-minutes').text(),
                         notes:$('div.wprm-recipe-notes-container').html(),
                     }
-                    
-                    addToDB(recipe)
+                    recipe.title.length > 1 && addToDB(recipe)
                     console.log(image)
                     resolve(recipe)
                 } else {
